@@ -8,8 +8,9 @@ website:
     background: primary
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Page-Simple
+      - href: about.qmd
+        text: A propos
 
 format:
   html:

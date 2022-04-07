@@ -12,5 +12,19 @@
     "title": "About",
     "section": "About this site",
     "text": "About this site\nThis is the contents of the about page for my site."
+  },
+  {
+    "objectID": "about.html#auteur-de-ce-site",
+    "href": "about.html#auteur-de-ce-site",
+    "title": "About",
+    "section": "Auteur de ce site",
+    "text": "Auteur de ce site\nC’est mon site de test de quarto website !"
+  },
+  {
+    "objectID": "about.html#cest-moi",
+    "href": "about.html#cest-moi",
+    "title": "Anaël Delorme",
+    "section": "C’est moi !",
+    "text": "C’est moi !\nC’est mon site de test de quarto website !"
   }
 ]

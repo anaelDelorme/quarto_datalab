@@ -1,15 +1,17 @@
 ---
-title: "About"
-image: profile.jpg
+title: "Anaël Delorme"
+image: images/anael.png
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
-    # (additional links excluded for brevity)
+    - icon: github
+      text: github
+      href: https://github.com/anaelDelorme
+    - icon: linkedin
+      text: linkedin
+      href: https://www.linkedin.com/in/anael-delorme-573b8858/
 ---
 
-## About this site
+## C'est moi !
 
-This is the contents of the about page for my site.
+C'est mon site de test de quarto website !

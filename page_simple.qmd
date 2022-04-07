@@ -1,0 +1,112 @@
+---
+title: "Site de démo Quarto"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Sommaire"
+    code-fold: true
+    code-summary: "Voir le code"
+    code-copy: true
+---
+
+```{r}
+#| label: setup_R
+#| include: false
+#| eval: false
+install.packages("gganimate")
+install.packages("reticulate")
+install.packages("palmerpenguins")
+```
+
+```{python}
+#| label: setup_python
+#| include: false
+#| eval: false
+!pip install matplotlib
+```
+
+```{r}
+#| label: library
+#| include: false
+#| warning: false
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(gganimate)
+#récupération du jeu de données des pingouins
+library(palmerpenguins)
+```
+
+C'est un site de démo de *"Quarto website"*.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+# Un calcul simple en R
+
+Il s'agit d'un simple calcul. J'ai laissé la possibilité de voir le code.
+
+```{r}
+1 + 1
+```
+
+# Un graph simple en R
+
+J'ai récupéré un jeu de données sur les films et séries Netflix. Le graphique présente le nombre cumulé de films et séries par année de sortie. Le code est accessible.
+
+```{r}
+#| label: netflix
+#| fig-cap: "Netflix film"
+#| warning: false
+#| echo: true
+netflix_titles <- read_delim("data/netflix_titles.csv", 
+    delim = ";", escape_double = FALSE, locale = locale(), 
+    trim_ws = TRUE)
+grp_netflix <- netflix_titles %>% 
+  group_by(release_year, type) %>% 
+  count() %>% 
+  filter(nchar(release_year)==4)
+
+
+
+grp_netflix %>%
+ filter(release_year >= 1991L & release_year <= 2020L) %>%
+ ggplot() +
+  aes(x = release_year, y = n, fill = type, colour = type) +
+  geom_area(size = 1.5) +
+  scale_fill_hue(direction = 1) +
+  scale_color_hue(direction = 1) +
+  theme_minimal()
+
+
+
+```
+
+# Un graph simple en Python
+
+J'ai récupéré un code tout fait en python et ça affiche un graphique. Le code est accessible.
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+#| warning: false
+#| echo: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+# Une animation simple en Observable
+
+Ne marche pas ici. *A analyser ?*

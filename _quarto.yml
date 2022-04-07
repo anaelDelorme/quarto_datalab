@@ -4,14 +4,49 @@ project:
 
 website:
   title: "Quarto Test"
+  image: images/logo.png
+  favicon: images/logo.png
+  twitter-card: true
+  site-url: https://anaeldelorme.github.io/quarto_datalab
+  repo-url: https://github.com/anaelDelorme/quarto_datalab
+  repo-actions: [edit, issue]
+  page-navigation: true
   navbar:
     background: primary
+    logo: images/logo.png
+    title: false
+    collapse-below: lg
     left:
       - href: index.qmd
-        text: Page-Simple
+        text: Accueil
+      - text: "Pages de data visualisation"
+        menu:
+          - text: "Page simple"
+            icon: "bi-sun"
+            href: page_simple.qmd
+          - text: "Page complexe"
+            icon: "bi-cloud-sun-fill"
+            href: page_complex.qmd
       - href: about.qmd
         text: A propos
-
+    right:
+      - icon: github
+        href: https://github.com/anaelDelorme
+      - icon: linkedin
+        href: https://www.linkedin.com/in/anael-delorme-573b8858/
+  page-footer:
+    left: |
+      Développé avec ![](https://icons.getbootstrap.com/assets/icons/heart.svg){width=15px} par Anaël grâce à 
+      [![](https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-flat.svg){width=65px}](https://www.rstudio.com)
+    center:
+      - text: "A propos"
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/anaelDelorme
+      - icon: linkedin
+        href: https://www.linkedin.com/in/anael-delorme-573b8858/
+  
 format:
   html:
     theme:

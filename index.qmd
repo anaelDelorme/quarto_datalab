@@ -1,92 +1,42 @@
 ---
-title: "Site de démo Quarto"
+pagetitle: "Quarto Site démo"
+page-layout: custom
+section-divs: false
+toc: false
+css: index.css
+editor: source
 ---
 
-```{r}
-#| label: setup_R
-#| include: false
-#| eval: false
-install.packages("gganimate")
-install.packages("reticulate")
-```
-```{python}
-#| label: setup_python
-#| include: false
-#| eval: false
-!pip install matplotlib
-```
+::: {.hero-banner}
 
-```{r}
-#| label: library
-#| include: false
-#| warning: false
-library(readr)
-library(tidyr)
-library(dplyr)
-library(ggplot2)
-library(gganimate)
+::: {.hero-image .hero-image-left}
+![](images/hero_left.gif)
+:::
 
-```
+::: {.content-block}
 
-C'est un site de démo de *"Quarto website"*.
+# Démo dataviz en Quarto^[®]{.trademark}^
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+### Quarto^[®]{.trademark}^ est un outil open-source de création de publications scientifiques et techniques construit sur [Pandoc](https://pandoc.org)
 
-# Un calcul simple en R
+Quarto permet de :
 
-```{r}
-1 + 1
-```
-# Un graph simple en R
+- Créer du contenu dynamique avec [Python](https://quarto.org/docs/computations/python.html), [R](https://quarto.org/docs/computations/r.html), [Julia](https://quarto.org/docs/computations/julia.html) et [Observable](https://quarto.org/docs/computations/ojs.html). 
+- Créez des documents en texte brut markdown ou des notebooks [Jupyter](https://jupyter.org/).
+- Publier des articles, des rapports, des présentations, des sites Web, des blogs et des livres en HTML, PDF, MS Word, ePub, etc.
+- Créer des documents en format markdown scientifique, y compris des équations, des citations, des références croisées, des panneaux de figures, des légendes, une mise en page avancée, etc.
 
+::: {.hero-buttons}
+[Page simple](page_simple.qmd){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+[Page complexe](page_complex.qmd){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+[Documentation quarto](https://quarto.org/){#btn-guide .btn-action .btn .btn-info .btn-lg role="button"}
 
-```{r}
-#| label: netflix
-#| fig-cap: "Netflix film"
-#| warning: false
-#| echo: false
-netflix_titles <- read_delim("data/netflix_titles.csv", 
-    delim = ";", escape_double = FALSE, locale = locale(), 
-    trim_ws = TRUE)
-grp_netflix <- netflix_titles %>% 
-  group_by(release_year, type) %>% 
-  count() %>% 
-  filter(nchar(release_year)==4)
+::: 
 
+:::
 
+::: {.hero-image .hero-image-right}
+![](images/hero_right.png)
+:::
 
-grp_netflix %>%
- filter(release_year >= 1991L & release_year <= 2020L) %>%
- ggplot() +
-  aes(x = release_year, y = n, fill = type, colour = type) +
-  geom_area(size = 1.5) +
-  scale_fill_hue(direction = 1) +
-  scale_color_hue(direction = 1) +
-  theme_minimal()
-
-
-
-```
-
-# Un graph simple en Python
-
-
-```{python}
-#| label: fig-polar
-#| fig-cap: "A line plot on a polar axis"
-#| warning: false
-#| echo: false
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'} 
-)
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
+:::

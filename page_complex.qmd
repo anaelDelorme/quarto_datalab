@@ -1,0 +1,11 @@
+---
+title: "Page complexe"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Sommaire"
+    code-fold: true
+    code-summary: "Voir le code"
+    code-copy: true
+---

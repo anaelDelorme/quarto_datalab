@@ -29,6 +29,7 @@ Quarto permet de :
 ::: {.hero-buttons}
 [Page simple](page_simple.qmd){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
 [Page complexe](page_complex.qmd){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+[Full Page](/fullpage/){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
 [Documentation quarto](https://quarto.org/){#btn-guide .btn-action .btn .btn-info .btn-lg role="button"}
 
 ::: 

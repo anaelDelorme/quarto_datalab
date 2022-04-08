@@ -54,5 +54,12 @@
     "title": "Site de démo Quarto",
     "section": "",
     "text": "C’est un site de démo de “Quarto website”.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nUn calcul simple en R\nIl s’agit d’un simple calcul. J’ai laissé la possibilité de voir le code.\n\n\nVoir le code\n1 + 1\n\n\n[1] 2\n\n\n\n\nUn graph simple en R\nJ’ai récupéré un jeu de données sur les films et séries Netflix. Le graphique présente le nombre cumulé de films et séries par année de sortie. Le code est accessible.\n\n\nVoir le code\nnetflix_titles <- read_delim(\"data/netflix_titles.csv\", \n    delim = \";\", escape_double = FALSE, locale = locale(), \n    trim_ws = TRUE)\ngrp_netflix <- netflix_titles %>% \n  group_by(release_year, type) %>% \n  count() %>% \n  filter(nchar(release_year)==4)\n\n\n\ngrp_netflix %>%\n filter(release_year >= 1991L & release_year <= 2020L) %>%\n ggplot() +\n  aes(x = release_year, y = n, fill = type, colour = type) +\n  geom_area(size = 1.5) +\n  scale_fill_hue(direction = 1) +\n  scale_color_hue(direction = 1) +\n  theme_minimal()\n\n\n\n\n\nNetflix film\n\n\n\n\n\n\nUn graph simple en Python\nJ’ai récupéré un code tout fait en python et ça affiche un graphique. Le code est accessible.\n\n\nVoir le code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\n\n\nUne animation simple en Observable\nNe marche pas ici. A analyser ?"
+  },
+  {
+    "objectID": "fullpage/index.html",
+    "href": "fullpage/index.html",
+    "title": "Page en fullpage",
+    "section": "",
+    "text": "Belle image\n\n\n\n\n\n\n\nSuper Graphique\n\nplot(cars)\n\n\n\n\n\n\nTableau important\n\nTableau\n\n\nCol1\nCol2\nCol3\n\n\n\n\nTruc 1\nfsdf\nsdf\n\n\nfdsfsd\ndfsdf\n\n\n\nsdf\nsdfsd\nsdf"
   }
 ]

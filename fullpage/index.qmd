@@ -1,0 +1,32 @@
+---
+title: "Page en fullpage"
+format:
+  html:
+    include-in-header:
+      - header.html
+    include-after-body: after_body.html
+---
+
+::: {#fullpage}
+### Belle image {#section1 .section}
+
+![](https://cdn.pixabay.com/photo/2022/04/02/13/43/music-7107045_960_720.jpg){fig-align="center"}
+
+### Super Graphique {#section2 .section}
+
+```{r}
+plot(cars)
+```
+
+
+### Tableau important {#section3 .section}
+
+| Col1   | Col2  | Col3 |
+|--------|-------|------|
+| Truc 1 | fsdf  | sdf  |
+| fdsfsd | dfsdf |      |
+| sdf    | sdfsd | sdf  |
+
+: Tableau
+
+:::

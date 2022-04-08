@@ -9,3 +9,203 @@ format:
     code-summary: "Voir le code"
     code-copy: true
 ---
+
+```{r}
+#| label: library
+#| include: false
+#| warning: false
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(gganimate)
+#récupération du jeu de données des pingouins
+library(palmerpenguins)
+library(dygraphs)
+library(tmap)
+tmap_mode("view")
+library(networkD3)
+library(leaflet)
+```
+
+Cette page propose des affichages plus complexes.
+
+# Exemple de Tabset
+
+<!-- Début du tabset -->
+
+::: panel-tabset
+## Films netflix
+
+```{r}
+#| label: netflix
+#| fig-cap: "Netflix film"
+#| warning: false
+#| echo: true
+netflix_titles <- read_delim("data/netflix_titles.csv", 
+    delim = ";", escape_double = FALSE, locale = locale(), 
+    trim_ws = TRUE)
+grp_netflix <- netflix_titles %>% 
+  group_by(release_year, type) %>% 
+  count() %>% 
+  filter(nchar(release_year)==4)
+
+
+
+grp_netflix %>%
+ filter(release_year >= 1991L & release_year <= 2020L) %>%
+ ggplot() +
+  aes(x = release_year, y = n, fill = type, colour = type) +
+  geom_area(size = 1.5) +
+  scale_fill_hue(direction = 1) +
+  scale_color_hue(direction = 1) +
+  theme_minimal()
+
+```
+
+## Graphique en Python
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+#| warning: false
+#| echo: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+:::
+
+<!-- Fin du tabset -->
+
+# Utilisation de htmlwidgets
+
+Tous les exemples sont issus du site [HtmlWidgets Gallery](http://gallery.htmlwidgets.org/)
+
+## Dygraph
+
+```{r}
+#| label: Dygraph
+#| fig-cap: "New Haven Temperatures"
+#| warning: false
+#| echo: true
+
+
+dygraph(nhtemp, main = "New Haven Temperatures") %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+
+
+```
+
+## Leaflet
+
+```{r}
+#| label: leaflet
+#| fig-cap: "Weather data © 2012 IEM Nexrad"
+#| warning: false
+#| echo: true
+
+leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 4) %>%
+  addWMSTiles(
+    "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi",
+    layers = "nexrad-n0r-900913",
+    options = WMSTileOptions(format = "image/png", transparent = TRUE),
+    attribution = "Weather data © 2012 IEM Nexrad"
+  )
+```
+
+## Tmap
+
+```{r}
+#| label: Tmap
+#| fig-cap: "HPI"
+#| warning: false
+#| message: false
+#| echo: true
+
+data(World)
+tm_shape(World) +
+  tm_polygons("HPI", id = "iso_a3", popup.vars = TRUE)
+
+
+```
+
+## NetworkD3
+
+```{r}
+#| label: NetworkD3
+#| fig-cap: "energy"
+#| warning: false
+#| message: false
+#| echo: true
+URL <- paste0(
+        "https://cdn.rawgit.com/christophergandrud/networkD3/",
+        "master/JSONdata/energy.json")
+Energy <- jsonlite::fromJSON(URL)
+# Plot
+sankeyNetwork(Links = Energy$links, Nodes = Energy$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             units = "TWh", fontSize = 12, nodeWidth = 30)
+```
+
+# Intégrer des graphiques Datawrapper
+
+## Une carte
+
+::: {#fig-carte_suisse}
+<!-- il suffit de copier l'iframe créé dans DataWrapper -->
+<iframe title="Places de travail vacantes en Suisse" aria-label="Carte" id="datawrapper-chart-SAeuB" src="https://datawrapper.dwcdn.net/SAeuB/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="596"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+Carte de la Suisse
+
+::: 
+
+
+
+
+## Un graphique
+
+::: {#fig-graph_apple}
+<iframe title="Production of Apples, tonnes. 2017-2022" aria-label="Séparer les barres" id="datawrapper-chart-2dOpJ" src="https://datawrapper.dwcdn.net/2dOpJ/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="480"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+Production de pommes
+:::
+
+# Mettre plusieurs graphiques à côté
+
+```{r}
+#| layout: [[45,-10, 45], [100]]
+#| label: graphiques à côté
+#| warning: false
+#| message: false
+#| echo: false
+plot(cars)
+plot(pressure)
+plot(mtcars)
+```
+
+# Mettre du texte à côté d'un graphique 
+
+::: {layout-ncol=2}
+```{r}
+#| label: graphique_gauche
+#| warning: false
+#| message: false
+#| echo: true
+plot(cars)
+```
+
+#### Texte à droite
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida eu erat et fring. Morbi congue augue vel eros ullamcorper, eget convallis tortor sagittis. Fusce sodales viverra mauris a fringilla. Donec feugiat, justo eu blandit placerat, enim dui volutpat turpis, eu dictum lectus urna eu urna. Mauris sed massa ornare, interdum ipsum a, semper massa. 
+:::

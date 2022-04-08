@@ -10,7 +10,7 @@ editor: source
 ::: {.hero-banner}
 
 ::: {.hero-image .hero-image-left}
-![](images/hero_left.gif)
+![](images/hero_left.png)
 :::
 
 ::: {.content-block}

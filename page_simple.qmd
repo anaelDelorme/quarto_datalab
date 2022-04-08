@@ -17,6 +17,9 @@ format:
 install.packages("gganimate")
 install.packages("reticulate")
 install.packages("palmerpenguins")
+install.packages("dygraphs")
+install.packages("tmap")
+install.packages("networkD3")
 ```
 
 ```{python}
@@ -24,6 +27,8 @@ install.packages("palmerpenguins")
 #| include: false
 #| eval: false
 !pip install matplotlib
+!pip install ipyleaflet
+!pip install plotly
 ```
 
 ```{r}

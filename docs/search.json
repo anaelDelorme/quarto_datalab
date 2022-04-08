@@ -7,6 +7,48 @@
     "text": "C’est moi !\nC’est mon site de test de quarto website !"
   },
   {
+    "objectID": "page_complex.html#dygraph",
+    "href": "page_complex.html#dygraph",
+    "title": "Page complexe",
+    "section": "Dygraph",
+    "text": "Dygraph\n\n\nVoir le code\ndygraph(nhtemp, main = \"New Haven Temperatures\") %>% \n  dyRangeSelector(dateWindow = c(\"1920-01-01\", \"1960-01-01\"))\n\n\n\n\nNew Haven Temperatures"
+  },
+  {
+    "objectID": "page_complex.html#leaflet",
+    "href": "page_complex.html#leaflet",
+    "title": "Page complexe",
+    "section": "Leaflet",
+    "text": "Leaflet\n\n\nVoir le code\nleaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 4) %>%\n  addWMSTiles(\n    \"http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi\",\n    layers = \"nexrad-n0r-900913\",\n    options = WMSTileOptions(format = \"image/png\", transparent = TRUE),\n    attribution = \"Weather data © 2012 IEM Nexrad\"\n  )\n\n\n\n\nWeather data © 2012 IEM Nexrad"
+  },
+  {
+    "objectID": "page_complex.html#tmap",
+    "href": "page_complex.html#tmap",
+    "title": "Page complexe",
+    "section": "Tmap",
+    "text": "Tmap\n\n\nVoir le code\ndata(World)\ntm_shape(World) +\n  tm_polygons(\"HPI\", id = \"iso_a3\", popup.vars = TRUE)\n\n\n\n\nHPI"
+  },
+  {
+    "objectID": "page_complex.html#networkd3",
+    "href": "page_complex.html#networkd3",
+    "title": "Page complexe",
+    "section": "NetworkD3",
+    "text": "NetworkD3\n\n\nVoir le code\nURL <- paste0(\n        \"https://cdn.rawgit.com/christophergandrud/networkD3/\",\n        \"master/JSONdata/energy.json\")\nEnergy <- jsonlite::fromJSON(URL)\n# Plot\nsankeyNetwork(Links = Energy$links, Nodes = Energy$nodes, Source = \"source\",\n             Target = \"target\", Value = \"value\", NodeID = \"name\",\n             units = \"TWh\", fontSize = 12, nodeWidth = 30)\n\n\n\n\nenergy"
+  },
+  {
+    "objectID": "page_complex.html#une-carte",
+    "href": "page_complex.html#une-carte",
+    "title": "Page complexe",
+    "section": "Une carte",
+    "text": "Une carte\n\n\n\n\n\n\nFigure 2: Carte de la Suisse"
+  },
+  {
+    "objectID": "page_complex.html#un-graphique",
+    "href": "page_complex.html#un-graphique",
+    "title": "Page complexe",
+    "section": "Un graphique",
+    "text": "Un graphique\n\n\n\n\n\nFigure 3: Production de pommes"
+  },
+  {
     "objectID": "page_simple.html",
     "href": "page_simple.html",
     "title": "Site de démo Quarto",

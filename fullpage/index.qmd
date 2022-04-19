@@ -2,31 +2,29 @@
 title: "Page en fullpage"
 format:
   html:
+    page-layout: custom  
+    section-divs: false
     include-in-header:
       - header.html
     include-after-body: after_body.html
 ---
 
 ::: {#fullpage}
-### Belle image {#section1 .section}
+::: {#section0 .sectionFullPage .active style="background-image:url('road.png')"}
+Section1
+:::
 
-![](https://cdn.pixabay.com/photo/2022/04/02/13/43/music-7107045_960_720.jpg){fig-align="center"}
+::: {#section1 .sectionFullPage}
+::: {#slide1 .slide}
+Slide 2.1
+:::
 
-### Super Graphique {#section2 .section}
+::: {#slide2 .slide}
+Slide 2.2
+:::
+:::
 
-```{r}
-plot(cars)
-```
-
-
-### Tableau important {#section3 .section}
-
-| Col1   | Col2  | Col3 |
-|--------|-------|------|
-| Truc 1 | fsdf  | sdf  |
-| fdsfsd | dfsdf |      |
-| sdf    | sdfsd | sdf  |
-
-: Tableau
-
+::: {#section2 .sectionFullPage}
+Section3
+:::
 :::

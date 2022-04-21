@@ -69,7 +69,7 @@ p{
 	margin: 0 auto;
 	font-size: 1.5em;
 }
-.section{
+.sectionFullPage{
 	text-align:center;
 }
 #menu li {
@@ -279,14 +279,14 @@ h1{
 	color: #fff;
 	margin:0;
 }
-.section p,
+.sectionFullPage p,
 .intro p{
 	color: #fff;
 }
 
 /* Centered texts in each section
 * --------------------------------------- */
-.section{
+.sectionFullPage{
 	text-align:center;
 }
 

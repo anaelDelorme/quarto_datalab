@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.27">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Quarto Test - Page en fullpage</title>
+  <title>Quarto Test – index</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -56,15 +56,12 @@
   <!--<link rel='stylesheet' href='https://alvarotrigo.com/fullPage/jquery.fullPage.css'>-->
   <link rel="stylesheet" href="./examples.css">
   <link rel="stylesheet" href="./fullpage.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./background_image.css">
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="../styles.css">
-<meta name="twitter:title" content="Quarto Test - Page en fullpage">
-<meta name="twitter:image" content="https://anaeldelorme.github.io/quarto_datalab/images/logo.png">
-<meta name="twitter:image-height" content="512">
-<meta name="twitter:image-width" content="512">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="fullcontent">
 <div id="quarto-search-results"></div>
@@ -131,35 +128,49 @@
 <!-- sidebar -->
 <!-- margin-sidebar -->
 <!-- main -->
-<header id="title-block-header">
-<h1 class="title display-7">Page en fullpage</h1>
-</header>
+<!-- Ajouter les images de fond de section ici -->
+<p><img src="../images/sheep.jpg" class="img-fluid" style="display:none"> <img src="../images/planet.jpg" class="img-fluid" style="display:none"></p>
 <div id="fullpage">
-<div id="section0" class="sectionFullPage active" style="background-image:url('road.png')">
+<div id="section0" class="sectionFullPage active" style="background-image:url('../images/planet.jpg')">
 <p>Section1</p>
 </div>
 <div id="section1" class="sectionFullPage">
 <div id="slide1" class="slide">
 <p>Slide 2.1</p>
 </div>
-<div id="slide2" class="slide">
+<div id="slide2" class="slide" style="background-image:url('../images/sheep.jpg')">
 <p>Slide 2.2</p>
 </div>
 </div>
 <div id="section2" class="sectionFullPage">
 <p>Section3</p>
 </div>
+<div id="section3" class="sectionFullPage">
+<p>Section Video <video id="myVideo" loop="" muted="" data-autoplay="" playsinline=""> <source src="../videos/Planet.mp4" type="video/mp4"> </video></p>
+<div class="layerVideo">
+<p>Titre qui vient se mettre en dessus</p>
+</div>
+</div>
 </div>
 
 
 
+<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 <script type="text/javascript" src="./fullpage.js"></script>
 <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
-        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-        menu: '#menu',
+        sectionsColor: ['#7BAABE', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+        anchors: ['section_1', 'section_2', 'section_3', '4thpage', 'lastPage'],
         slidesNavigation: true,
+        controlArrows: true,
+        controlArrowsHTML: [
+            '<div class="my-arrow"><i class="fas fa-arrow-alt-circle-left"></i></i></div>',
+            '<div class="my-arrow"><i class="fas fa-arrow-alt-circle-right"></i></div>',
+        ],
+        navigation:true,
+        navigationPosition: 'right',
+        navigationTooltips: ['Section 1', 'Section 2', 'Section 3'],
+        showActiveTooltip: true,
         lazyLoad: true,
         credits: {enabled: false}
     });

@@ -1,16 +1,19 @@
 ---
-title: "Page en fullpage"
 format:
   html:
     page-layout: custom  
     section-divs: false
     include-in-header:
       - header.html
-    include-after-body: after_body.html
+    include-after-body: gestion_ancre.html
 ---
 
+<!-- Ajouter les images de fond de section ici -->
+
+![](../images/sheep.jpg){style="display:none"} ![](../images/planet.jpg){style="display:none"}
+
 ::: {#fullpage}
-::: {#section0 .sectionFullPage .active style="background-image:url('road.png')"}
+::: {#section0 .sectionFullPage .active style="background-image:url('../images/planet.jpg')"}
 Section1
 :::
 
@@ -19,12 +22,21 @@ Section1
 Slide 2.1
 :::
 
-::: {#slide2 .slide}
+::: {#slide2 .slide style="background-image:url('../images/sheep.jpg')"}
 Slide 2.2
 :::
 :::
 
 ::: {#section2 .sectionFullPage}
 Section3
+:::
+
+::: {#section3 .sectionFullPage}
+Section Video <video id="myVideo" loop muted data-autoplay playsinline> <source src="../videos/Planet.mp4" type="video/mp4"> </video>
+
+::: {.layerVideo}
+Titre qui vient se mettre au dessus
+:::
+
 :::
 :::

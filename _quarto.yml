@@ -15,6 +15,7 @@ website:
     background: primary
     logo: images/logo.png
     title: false
+    # pinned: true
     collapse-below: lg
     left:
       - href: index.qmd

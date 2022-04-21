@@ -11,27 +11,6 @@ format:
 ---
 
 ```{r}
-#| label: setup_R
-#| include: false
-#| eval: false
-install.packages("gganimate")
-install.packages("reticulate")
-install.packages("palmerpenguins")
-install.packages("dygraphs")
-install.packages("tmap")
-install.packages("networkD3")
-```
-
-```{python}
-#| label: setup_python
-#| include: false
-#| eval: false
-!pip install matplotlib
-!pip install ipyleaflet
-!pip install plotly
-```
-
-```{r}
 #| label: library
 #| include: false
 #| warning: false
@@ -99,6 +78,8 @@ J'ai récupéré un code tout fait en python et ça affiche un graphique. Le cod
 #| echo: true
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 r = np.arange(0, 2, 0.01)

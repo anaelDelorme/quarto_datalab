@@ -1,0 +1,20 @@
+<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+<script type="text/javascript" src="./fullpage.js"></script>
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        sectionsColor: ['#7BAABE', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+        anchors: ['section_1', 'section_2', 'section_3', '4thpage', 'lastPage'],
+        slidesNavigation: true,
+        controlArrows: true,
+        controlArrowsHTML: [
+            '<div class="my-arrow"><i class="fas fa-arrow-alt-circle-left"></i></i></div>',
+            '<div class="my-arrow"><i class="fas fa-arrow-alt-circle-right"></i></div>',
+        ],
+        navigation:true,
+        navigationPosition: 'right',
+        navigationTooltips: ['Section 1', 'Section 2', 'Section 3'],
+        showActiveTooltip: true,
+        lazyLoad: true,
+        credits: {enabled: false}
+    });
+</script>

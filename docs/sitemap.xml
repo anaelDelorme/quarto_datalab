@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://anaeldelorme.github.io/quarto_datalab/fullpage/index.html</loc>
-    <lastmod>2022-04-21T15:13:29.659Z</lastmod>
+    <lastmod>2022-05-20T15:02:19.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://anaeldelorme.github.io/quarto_datalab/comment_faire/installation.html</loc>
+    <lastmod>2022-05-20T15:02:21.044Z</lastmod>
   </url>
   <url>
     <loc>https://anaeldelorme.github.io/quarto_datalab/index.html</loc>
-    <lastmod>2022-04-21T14:34:26.458Z</lastmod>
-  </url>
-  <url>
-    <loc>https://anaeldelorme.github.io/quarto_datalab/page_complex.html</loc>
-    <lastmod>2022-04-21T14:34:41.102Z</lastmod>
+    <lastmod>2022-05-20T15:02:43.029Z</lastmod>
   </url>
   <url>
     <loc>https://anaeldelorme.github.io/quarto_datalab/page_simple.html</loc>
-    <lastmod>2022-04-21T14:34:48.798Z</lastmod>
+    <lastmod>2022-05-20T15:02:28.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://anaeldelorme.github.io/quarto_datalab/page_complex.html</loc>
+    <lastmod>2022-05-20T15:02:41.409Z</lastmod>
   </url>
   <url>
     <loc>https://anaeldelorme.github.io/quarto_datalab/about.html</loc>
-    <lastmod>2022-04-21T14:34:49.686Z</lastmod>
+    <lastmod>2022-05-20T15:02:42.381Z</lastmod>
   </url>
 </urlset>

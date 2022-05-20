@@ -1,0 +1,33 @@
+---
+title: "Installation"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Sommaire"
+    code-fold: true
+    code-summary: "Voir le code"
+    code-copy: true
+---
+
+# Initialisation
+
+## Prérequis
+Compte Datalab
+Compte Github
+
+## Créer un projet Github avec le code-source fourni
+Pages
+
+## Créer un service Rstudio sur Datalab
+
+autres alternatives (VScode, ide en local...)
+
+## Créer un projet connecté avec le Github
+
+## Lancer l'installation des packages nécessaires
+
+## Vérifier le bon fonctionnement via Render et un push GitHub
+
+## Créer des branches
+

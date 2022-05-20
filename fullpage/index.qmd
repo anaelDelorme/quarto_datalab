@@ -8,36 +8,117 @@ format:
     include-after-body: gestion_ancre.html
 ---
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+</style>
+
+```{r}
+#| label: library
+#| include: false
+#| warning: false
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(gganimate)
+#récupération du jeu de données des pingouins
+library(palmerpenguins)
+```
+
+
+
 <!-- Ajouter les images de fond de section ici -->
 
 ![](../images/sheep.jpg){style="display:none"} ![](../images/planet.jpg){style="display:none"}
 
 ::: {#fullpage}
 ::: {#section0 .sectionFullPage .active style="background-image:url('../images/planet.jpg')"}
-Section1
+# Data Storytelling
+
+*Comment raconter efficacement une histoire avec des données*
 :::
 
 ::: {#section1 .sectionFullPage}
 ::: {#slide1 .slide}
-Slide 2.1
+# Une diapo avec un graphique Datawrapper
+
+Une explication du graphique peut être mise ici, avec du **gras** ou de l'*italique*. Etiam interdum leo at neque lacinia porttitor. Praesent magna orci, lobortis sit amet libero vel, maximus molestie dolor. Donec egestas non nulla nec scelerisque. Sed vel magna leo. Pellentesque gravida augue quis neque porta, nec posuere justo vestibulum. Aenean congue volutpat ligula eu finibus. Vestibulum felis nibh, suscipit vitae tristique.  
+
+<div style="padding-top: 20px;">
+<iframe title="Indices des prix des produits de grande consommation dans la grande distribution par type de produit" aria-label="Interactive line chart" id="datawrapper-chart-mAAJ7" src="https://datawrapper.dwcdn.net/mAAJ7/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 70% !important; border: none; background-color: #FFE5C3; margin: 10px" height="407">
+</iframe>
+<script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+</div>
+
 :::
 
 ::: {#slide2 .slide style="background-image:url('../images/sheep.jpg')"}
 
-Slide 2.2
+# Un texte sur une image
+
 :::
 :::
 
 ::: {#section2 .sectionFullPage}
-Section3
+# Un graphique sur 2 colonnes
+::: {#slide2Row .row}
+ 
+::: {#slide2Col1 .column}
+
+*Un texte explicatif* : praesent magna orci, lobortis sit amet libero vel, maximus molestie dolor. Donec egestas non nulla nec scelerisque. Sed vel magna leo. Pellentesque gravida augue quis neque porta, nec posuere justo vestibulum.
+  
+:::
+  
+::: {#slide2Col2 .column}
+
+```{r}
+#| label: netflix
+#| fig-cap: "Netflix film"
+#| warning: false
+#| echo: false
+netflix_titles <- read_delim("../data/netflix_titles.csv", 
+    delim = ";", escape_double = FALSE, locale = locale(), 
+    trim_ws = TRUE)
+grp_netflix <- netflix_titles %>% 
+  group_by(release_year, type) %>% 
+  count() %>% 
+  filter(nchar(release_year)==4)
+
+
+
+grp_netflix %>%
+ filter(release_year >= 1991L & release_year <= 2020L) %>%
+ ggplot() +
+  aes(x = release_year, y = n, fill = type, colour = type) +
+  geom_area(size = 1.5) +
+  scale_fill_hue(direction = 1) +
+  scale_color_hue(direction = 1) +
+  theme_minimal()
+
+```
+:::
+:::
+
 :::
 
 ::: {#section3 .sectionFullPage}
 Section Video <video id="myVideo" loop muted data-autoplay playsinline> <source src="../videos/Planet.mp4" type="video/mp4"> </video>
 
-::: {.layerVideo}
-Titre qui vient se mettre au dessus
+::: layerVideo
+# Titre qui vient se mettre au dessus d'une video
 :::
-
 :::
 :::
